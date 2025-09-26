@@ -7,11 +7,13 @@ Reg *next;
 }Node;
 
 class LinkedList{
-
+    
 Node* first = NULL;
-public:
 
-void insert(int n){
+public:
+ 
+ void insert(int n){
+
     Node* newNode= new Node{n, first};
     first = newNode;
 }
@@ -53,41 +55,21 @@ void del(int n)
     } 
 }
 
-;
-
-void search(int n)
-{
-    Node* current = first;  // começa do início da lista
-
-    while(current != NULL){
-
-        if(current->info == n)
-        {
-            cout<< current->info << " existe na lista" << endl;
-            system("pause");
-            return;
-        }
-
-        current = current->next;
-    }
-
-    cout<< "O elemento não existe na lista"<<endl;
-}
-
 };
 
 int main() {
     LinkedList list;
     int op = 0,n;
+    int count = 0;
     
     while(op != 5){
-        
+
         cout<<"========================="<<endl;
         cout<<"escolha um alternativa"<<endl;
         cout<<"1 - inserir"<<endl;
         cout<<"2 - percorrer/printar"<<endl;
         cout<<"3 - deletar um elemento"<<endl;
-        cout<<"4 - procurar um elemento"<<endl;
+        cout<<"4 - Informar quantos elementos existem"<<endl;
         cout<<"5 - sair"<<endl;
         cout<<"========================="<<endl;
         
@@ -95,6 +77,7 @@ int main() {
         switch(op)
         {
             case 1:
+                 count = count + 1;
                 cout<<"informe o elemento a ser inserido"<<endl;
                 scanf("%d", &n);
                 list.insert(n);
@@ -106,17 +89,16 @@ int main() {
             break;
 
             case 3:
+                count = count - 1;
                 cout<<"informe o elemento a ser deletado"<<endl;
                 scanf("%d", &n);
                 list.del(n);
             break;
 
-            case 4:
-                cout<<"informe o elemento a ser pesquisado"<<endl;
-                scanf("%d", &n);
-                list.search(n);
+            case 4: 
+                cout<< count << " elementos existentes "<<endl;
+                system("pause");
             break;
-
 
             default:
 
