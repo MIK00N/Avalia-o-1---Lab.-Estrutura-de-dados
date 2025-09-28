@@ -20,7 +20,7 @@ void inicializarPilha(Pilha *pilha) {
 
 // a) Inserir elementos (Push)
 void push(Pilha *pilha, int valor) {
-    No *novoNo = (No*)malloc(sizeof(No));
+    No *novoNo = new No;
     if (novoNo == NULL) {
         printf("Erro ao alocar memoria para o novo no.\n");
         return;
