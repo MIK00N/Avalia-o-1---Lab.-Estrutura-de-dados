@@ -57,17 +57,16 @@ public:
         cout << endl;
     }
 
-    // c) Buscar elemento
-    Node* search(int value) {
-        Node* temp = head;
-        while (temp != nullptr) {
-            if (temp->info == value)
-                return temp;
-            temp = temp->next;
-        }
-        return nullptr;
+    // c) Buscar elemento (recursivo)
+    Node* searchRecursive(Node* current, int value) {
+        if (current == nullptr) return nullptr;        
+        if (current->info == value) return current;    
+        return searchRecursive(current->next, value);  
     }
 
+    Node* search(int value) {
+        return searchRecursive(head, value);
+    }
     // d) Excluir elemento em qualquer posição
     void remove(int pos) {
         if (head == nullptr) return;
@@ -124,4 +123,3 @@ int main() {
 
     return 0;
 }
-
